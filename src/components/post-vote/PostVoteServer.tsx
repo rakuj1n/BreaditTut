@@ -11,7 +11,7 @@ interface PostVoteServerProps {
   getData?: () => Promise<(Post & {votes: Vote[]}) | null>
 }
 
-const PostVoteServer: FC<PostVoteServerProps> = async ({postId, initialVotesAmt, initialVote, getData}) => {
+const PostVoteServer= async ({postId, initialVotesAmt, initialVote, getData}:PostVoteServerProps) => {
   
     const session = await getAuthSession()
 
