@@ -1,6 +1,9 @@
 import { FC } from 'react'
 import { PageProps } from '../../../../../.next/types/app/page'
 import { db } from '@/lib/db'
+import { notFound } from 'next/navigation'
+import { Button } from '@/components/ui/Button'
+import Editor from '@/components/Editor'
 
 interface pageProps {
   params: {
@@ -30,6 +33,15 @@ const page = async ({params}: PageProps) => {
                 <p className='ml-2 mt-1 truncate text-sm text-gray-500'>in r/{params.slug}</p>
             </div>
         </div>
+
+        {/* form */}
+        <Editor subredditId={subreddit.id}/>
+
+        <div className='w-full flex justify-end'>
+          <Button type='submit' className='w-full' form='subreddit-post-form'>Post</Button>
+        </div>
+
+
     </div>
   )
 }
